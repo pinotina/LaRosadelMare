@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <title>Sfondo Video</title>
     <style>
         body, html {
             margin: 0;
@@ -11,26 +12,28 @@
             overflow: hidden;
             background: black;
         }
-        .fs-vid-background {
-            position: fixed;
+        .container {
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: 999;
-            pointer-events: none;
-        }
-        .fs-vid-background video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
     </style>
 </head>
 <body>
-    <div class="fs-vid-background">
-        <video autoplay muted loop playsinline preload="auto">
+    <div class="container">
+        <video autoplay muted loop playsinline controls>
             <source src="https://litter.catbox.moe/zd0zf6v5eszmepbc.mp4" type="video/mp4">
+            Il tuo browser non supporta il tag video.
         </video>
     </div>
 </body>
