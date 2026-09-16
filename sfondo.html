@@ -14,30 +14,28 @@
       height: 100%;
       overflow: hidden;
       background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     #bg-video {
-      position: fixed;
+      width: 100%;
+      height: 100%;
+      object-fit: contain; /* Mostra tutto il video senza tagliarlo */
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 1;
     }
   </style>
 </head>
 <body>
   <video id="bg-video" autoplay muted loop playsinline preload="auto">
     <source src="video.mp4" type="video/mp4">
-    Il tuo browser non supporta il tag video.
   </video>
-
   <script>
     const vid = document.getElementById('bg-video');
-    vid.muted = true; // Forza il muto a livello di sistema per consentire l'autoplay
-    vid.play().catch(error => {
-      console.log("Autoplay in attesa o bloccato:", error);
-    });
+    vid.muted = true;
+    vid.play().catch(e => console.log(e));
   </script>
 </body>
 </html>
